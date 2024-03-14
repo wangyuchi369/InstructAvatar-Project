@@ -180,9 +180,9 @@
                 <table style="table-layout: fixed;">
                     <tbody>
                         <tr>
-                            <td width="33%"> <span><center><strong> Textual Instruction: Sad </strong></center></span> </td>
-                            <td width="33%"> <span><center><strong> Textual Instruction: Open your mouth </strong></center></span> </td>
-                            <td width="33%"> <span><center><strong> Textual Instruction: Surprise </strong></center></span> </td>
+                            <td width="33%"> <span><center><strong> Sing with happy emotion. </strong></center></span> </td>
+                            <td width="33%"> <span><center><strong> Speak with your eyebrows and lids raised. </strong></center></span> </td>
+                            <td width="33%"> <span><center><strong> Be angry when talking. </strong></center></span> </td>
                         </tr>
                         <tr>
                             <td width="33%"> <video width="95%" controls> <source src="video/emotional_talking/1.mp4" type="video/mp4"> </video> </td>
@@ -190,9 +190,9 @@
                             <td width="33%"> <video width="95%" controls> <source src="video/emotional_talking/3.mp4" type="video/mp4"> </video> </td>
                         </tr>
                         <tr>
-                            <td width="33%"> <span><center><strong> Textual Instruction: Sad </strong></center></span> </td>
-                            <td width="33%"> <span><center><strong> Textual Instruction: Open your mouth </strong></center></span> </td>
-                            <td width="33%"> <span><center><strong> Textual Instruction: Surprise </strong></center></span> </td>
+                            <td width="33%"> <span><center><strong> Speak as if your emotion was astonished. </strong></center></span> </td>
+                            <td width="33%"> <span><center><strong> Talk with a mixture of happy and surprised emotions. </strong></center></span> </td>
+                            <td width="33%"> <span><center><strong> Talk with happy emotion. </strong></center></span> </td>
                         </tr>
                         <tr>
                             <td width="33%"> <video width="95%" controls> <source src="video/emotional_talking/4.mp4" type="video/mp4"> </video> </td>
@@ -205,9 +205,9 @@
                     <table style="table-layout: fixed;">
                         <tbody>
                             <tr>
-                                <td width="33%"> <span><center><strong> Textual Instruction: Sad </strong></center></span> </td>
-                                <td width="33%"> <span><center><strong> Textual Instruction: Open your mouth </strong></center></span> </td>
-                                <td width="33%"> <span><center><strong> Textual Instruction: Surprise </strong></center></span> </td>
+                                <td width="33%"> <span><center><strong> Raise your cheek and pull your lip corners. </strong></center></span> </td>
+                                <td width="33%"> <span><center><strong> Turn your head left, please. </strong></center></span> </td>
+                                <td width="33%"> <span><center><strong> Open your mouth. </strong></center></span> </td>
                             </tr>
                             <tr>
                                 <td width="33%"> <video width="95%" controls> <source src="video/facial_motion/1.mp4" type="video/mp4"> </video> </td>
@@ -215,9 +215,9 @@
                                 <td width="33%"> <video width="95%" controls> <source src="video/facial_motion/3.mp4" type="video/mp4"> </video> </td>
                             </tr>
                             <tr>
-                                <td width="33%"> <span><center><strong> Textual Instruction: Sad </strong></center></span> </td>
-                                <td width="33%"> <span><center><strong> Textual Instruction: Open your mouth </strong></center></span> </td>
-                                <td width="33%"> <span><center><strong> Textual Instruction: Surprise </strong></center></span> </td>
+                                <td width="33%"> <span><center><strong> Give me a surprised emotion. </strong></center></span> </td>
+                                <td width="33%"> <span><center><strong> Lower your head, please. </strong></center></span> </td>
+                                <td width="33%"> <span><center><strong> Open your mouth and close it, and then turn your head left. </strong></center></span> </td>
                             </tr>
                             <tr>
                                 <td width="33%"> <video width="95%" controls> <source src="video/facial_motion/4.mp4" type="video/mp4"> </video> </td>
@@ -238,11 +238,11 @@
                 Abstract
             </h1>
             <div class="content has-text-justified-desktop">
-                <p>Recent talking avatar generation models have made strides in achieving realistic and accurate lip synchronization with the audio, but often fall short in controlling and conveying detailed expressions and emotions of the avatar, making the generated video less vivid and controllable. 
-                    In this paper, we propose a novel text-guided approach for generating emotionally expressive 2D avatars, offering fine-grained control, improved interactivity and generalizability to the resulting video. Our framework, named \modelname, leverages a natural language interface to control the emotion as well as the facial motion of avatars. We design an automatic annotation pipeline to construct an instruction-video paired training dataset, equipped with a novel two-branch diffusion-based generator to predict avatars with audio and text instructions at the same time. 
-                    Experimental results demonstrate that \modelname produces results that align well with both conditions, and
+                <p>Recent talking avatar generation models have made strides in achieving realistic and accurate lip synchronization with the audio, but often fall short in controlling and conveying detailed expressions and emotions of the avatar, making the generated video less vivid and controllable. </p>
+                  <p> In this paper, we propose <strong>a novel text-guided approach for generating emotionally expressive 2D avatars</strong> , offering fine-grained control, improved interactivity and generalizability to the resulting video. Our framework, named <strong>InstructAvatar</strong>, leverages a natural language interface to control the emotion as well as the facial motion of avatars. We design an automatic annotation pipeline to construct an instruction-video paired training dataset, equipped with a novel two-branch diffusion-based generator to predict avatars with audio and text instructions at the same time. </p>
+                 <p> Experimental results demonstrate that InstructAvatar produces results that align well with both conditions, and
                     outperforms existing methods in fine-grained emotion control, lip-sync quality, and naturalness. 
-                </p>
+                </p>  
             </div>
         </div>
     </section>
@@ -255,7 +255,7 @@
             <div class="content has-text-justified-desktop">
                 <img class="mb-5" src="img/model.png">
                 <p>
-                    The \modelname consists of two components: VAE $\mathcal{H}$ to disentangle motion information from the video and a motion generator $\mathcal{G}$ to generate the motion latent conditioned on audio and instruction. As we have two types of data, two switches in instruction and audio are designed. During inference, we iteratively denoise Gaussian noise to obtain the predicted motion latent. Together with the user-provided portrait, the resulting video is generated by the decoder of the VAE.
+                    The InstructAvatar consists of two components: VAE to disentangle motion information from the video and a diffusion model based motion generator to generate the motion latent conditioned on audio and instruction. As we have two types of data, two switches in instruction and audio are designed. During inference, we iteratively denoise Gaussian noise to obtain the predicted motion latent. Together with the user-provided portrait, the resulting video is generated by the decoder of the VAE.
                 </p>
             </div>
         </div>
@@ -264,15 +264,15 @@
     <section class="section pt-0">
         <div class="container is-max-desktop">
             <h1 class="title is-4">
-                Comparison: Speech-Driven Talking Avatar Generation
+                Comparison: Emotional talking face generation
             </h1>
             <div class="content has-text-justified-desktop">
                 <video controls="" width="100%">
                     <source src="video/video.mp4" type="video/mp4">
                 </video>
-                <!-- <p>
-                    xxx
-                </p> -->
+                <p>
+                    Qualitative comparison with baselines. It shows that InstructAvatar achieves well lip-sync quality and emotion controllability. Additionally, the outputs generated by our model exhibit enhanced naturalness and effectively preserve identity characteristics. It's also worth mentioning that our model infers talking emotion solely based on text inputs, <strong>which intuitively poses a more challenging task</strong>. Additionally, our model supports a broader scope of instructions beyond high-level emotion types, which is absent for most baselines.
+                </p>
             </div>
         </div>
     </section>
@@ -280,15 +280,15 @@
     <section class="section pt-0">
         <div class="container is-max-desktop">
             <h1 class="title is-4">
-                Comparison: Video-Driven Talking Avatar Generation
+                Visualization: More results of emotional talking control
             </h1>
             <div class="content has-text-justified-desktop">
                 <video controls="" width="100%">
                     <source src="video/emotion_video.mp4" type="video/mp4">
                 </video>
-                <!-- <p>
-                    xxx
-                </p> -->
+                <p>
+                    Additional outcomes concerning text-guided emotional talking control are presented above. We can see that our model exhibits precise emotion control ability, with the generated results appearing natural. Furthermore, InstructAvatar supports fine-grained control and demonstrates reasonable generalization ability beyond the domain.
+                </p>
             </div>
         </div>
     </section>
@@ -296,13 +296,13 @@
     <section class="section pt-0">
         <div class="container is-max-desktop">
             <h1 class="title is-4">
-                Visualization: Pose-Controllable Talking Avatar Generation<a name="posecontrol"></a>
+                Visualization: More results of facial motion control
             </h1>
             <video controls="" width="100%">
                 <source src="video/motion_video.mp4" type="video/mp4">
             </video>
             <p>
-                In addition to predicting the head pose from the speech, we also enable the model with pose-controllable generation. We implement it by replacing the estimated head pose with either a handcrafted pose or the one extracted from another video. The results show that we can control the head poses while the lip motion is synchronized with the speech content.
+                We show more results about facial motion control above. It is evident that InstructAvatar exhibits remarkable proficiency in following instructions and preserving identity. Furthermore, the generated results appear natural and robust with variations in the provided portrait. Moreover, our model demonstrates fine-grained control capability and performs effectively in out-of-domain scenarios.
             </p>
         </div>
     </section>
@@ -347,7 +347,7 @@
             </h1>
             <div class="content has-text-justified-desktop">
                 <p>
-                GAIA is developed for research purposes only, but misuse may exist as it can generate realistic videos with a single portrait image. Adding watermarks is a common way to prevent this, which has been widely studied in both research and industry works. On the other hand, as an AIGC model, the generation results of our model can be utilized to construct artificial datasets and train discriminative models.
+                    InstructAvatar is designed to advance AI research on talking avatar generation. Responsible usage is strongly encouraged, and we discourage users from employing our model to generate intentionally deceptive content or engage in other inauthentic activities. To prevent misuse, adding watermarks is a common approach. Moreover, as a generative model, our results can be utilized to construct artificial datasets and train discriminative models.
                 </p>
             </div>
         </div>
